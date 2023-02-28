@@ -1,0 +1,111 @@
+Screen2 As screen:
+
+    DataTable1 As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =500
+        Items: =Coll_Data
+        Width: =1257
+        X: =40
+        Y: =40
+        ZIndex: =1
+
+        ComboBox1_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ComboBox1"
+            FieldName: ="ComboBox1"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.ComboBox1
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        ComboBox1_1_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ComboBox1_1"
+            FieldName: ="ComboBox1_1"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.ComboBox1_1
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        DataType_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DataType"
+            FieldName: ="DataType"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.DataType
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        DatePicker1_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DatePicker1"
+            FieldName: ="DatePicker1"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.DatePicker1
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =4
+
+        DatePicker1_1_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DatePicker1_1"
+            FieldName: ="DatePicker1_1"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: =ThisItem.DatePicker1_1
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+        Dropdown1_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Dropdown1"
+            FieldName: ="Dropdown1"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: =ThisItem.Dropdown1
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+        Dropdown1_1_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Dropdown1_1"
+            FieldName: ="Dropdown1_1"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =7
+            Text: =ThisItem.Dropdown1_1.SelectedText.Value
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =7
+

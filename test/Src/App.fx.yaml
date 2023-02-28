@@ -1,0 +1,6 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =ClearCollect(Coll_Data,AddColumns(Questionnare,"DataValue",""));ClearCollect(DataKeyPairs,{Key:"",Value:""});Clear(DataKeyPairs)
+    StartScreen: =
+

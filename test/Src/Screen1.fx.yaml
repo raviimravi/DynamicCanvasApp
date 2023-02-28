@@ -1,0 +1,190 @@
+Screen1 As screen:
+
+    "Gallery3 As gallery.'BrowseLayout_Flexible_SocialFeed_ver4.0'":
+        Height: =674
+        Items: =FirstN(Coll_Data,CountRows(Coll_Data)/2)
+        Layout: =Layout.Vertical
+        TemplatePadding: =4
+        TemplateSize: =140
+        Width: =683
+        Y: =90
+        ZIndex: =1
+
+        Label1 As label:
+            Height: =65
+            OnSelect: =Select(Parent)
+            Size: =20
+            Text: =ThisItem.Title
+            Width: =622
+            X: =20
+            Y: =6
+            ZIndex: =1
+
+        TextInput1 As text:
+            Default: =
+            Format: =If(ThisItem.DataType.Value="Number",TextFormat.Number,TextFormat.Text)
+            Mode: =If(ThisItem.DataType.Value="Note",TextMode.MultiLine,TextMode.SingleLine)
+            OnChange: |-
+                =Patch(Coll_Data,ThisItem,{DataValue:TextInput1.Text})
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.DataType.Value="Text" || ThisItem.DataType.Value="Note" || ThisItem.DataType.Value="Number"
+            Width: =458
+            X: =20
+            Y: =83
+            ZIndex: =2
+
+        Dropdown1 As dropdown:
+            Items: =Split(ThisItem.ValuesIfChoice,";")
+            OnSelect: |-
+                =Patch(Coll_Data,ThisItem,{DataValue:Dropdown1.Selected.Result})
+            Visible: =ThisItem.DataType.Value="Choice"
+            Width: =450
+            X: =20
+            Y: =83
+            ZIndex: =3
+
+        DatePicker1 As datepicker:
+            OnChange: |-
+                =Patch(Coll_Data,ThisItem,{DataValue:DatePicker1.SelectedDate})
+            Reset: =ThisItem.DataType.Value="Date"
+            Visible: =ThisItem.DataType.Value=""
+            Width: =450
+            X: =20
+            Y: =83
+            ZIndex: =4
+
+        ComboBox1 As combobox:
+            DisplayFields: =["DisplayName"]
+            Items: =Choices(Questionnare.TestCol)
+            OnChange: |-
+                =Patch(Coll_Data,ThisItem,{DataValue:Concat(ComboBox1.SelectedItems,Claims,";")})
+            OnSelect: =Select(Parent)
+            SearchFields: =["DisplayName"]
+            SearchItems: =Choices(Questionnare.TestCol,ComboBox1.SearchText)
+            SelectMultiple: =ThisItem.DataType.Value="People"
+            Visible: =ThisItem.DataType.Value="People" || ThisItem.DataType.Value="Person"
+            Width: =450
+            X: =20
+            Y: =83
+            ZIndex: =5
+
+        Toggle1 As toggleSwitch:
+            FalseText: ="No"
+            Height: =40
+            OnChange: |-
+                =Patch(Coll_Data,ThisItem,{DataValue:Toggle1.Value})
+            OnSelect: =Select(Parent)
+            TrueText: ="Yes"
+            Visible: =ThisItem.DataType.Value="Boolean"
+            Width: =112
+            X: =20
+            Y: =83
+            ZIndex: =6
+
+    "Gallery3_1 As gallery.'BrowseLayout_Flexible_SocialFeed_ver4.0'":
+        Height: =674
+        Items: =LastN(Coll_Data,CountRows(Coll_Data)/2)
+        Layout: =Layout.Vertical
+        TemplatePadding: =4
+        TemplateSize: =140
+        Width: =683
+        X: =683
+        Y: =90
+        ZIndex: =2
+
+        Label1_1 As label:
+            Height: =65
+            OnSelect: =Select(Parent)
+            Size: =20
+            Text: =ThisItem.Title
+            Width: =622
+            X: =20
+            Y: =6
+            ZIndex: =1
+
+        TextInput1_1 As text:
+            Default: =
+            Format: =If(ThisItem.DataType.Value="Number",TextFormat.Number,TextFormat.Text)
+            Height: =If(Self.Mode=TextMode.MultiLine,120,40)
+            Mode: =If(ThisItem.DataType.Value="Note",TextMode.MultiLine,TextMode.SingleLine)
+            OnChange: |-
+                =Patch(Coll_Data,ThisItem,{DataValue:TextInput1_1.Text})
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.DataType.Value="Text" || ThisItem.DataType.Value="Note" || ThisItem.DataType.Value="Number"
+            Width: =450
+            X: =20
+            Y: =83
+            ZIndex: =2
+
+        Dropdown1_1 As dropdown:
+            Default: =
+            Items: =Split(ThisItem.ValuesIfChoice,";")
+            OnSelect: |-
+                =Patch(Coll_Data,ThisItem,{DataValue:Dropdown1_1.Selected.Result})
+            Visible: =ThisItem.DataType.Value="Choice"
+            Width: =450
+            X: =20
+            Y: =83
+            ZIndex: =3
+
+        DatePicker1_1 As datepicker:
+            OnChange: |-
+                =Patch(Coll_Data,ThisItem,{DataValue:DatePicker1_1.SelectedDate})
+            Visible: =ThisItem.DataType.Value="Date"
+            Width: =450
+            X: =20
+            Y: =83
+            ZIndex: =4
+
+        ComboBox1_1 As combobox:
+            DisplayFields: =["DisplayName"]
+            Items: =Choices(Questionnare.TestCol)
+            OnChange: |-
+                =Patch(Coll_Data,ThisItem,{DataValue:Concat(ComboBox1_1.SelectedItems,Claims,";")})
+            OnSelect: =Select(Parent)
+            SearchFields: =["DisplayName"]
+            SearchItems: =Choices(Questionnare.TestCol,ComboBox1_1.SearchText)
+            SelectMultiple: =ThisItem.DataType.Value="People"
+            Visible: =ThisItem.DataType.Value="People" || ThisItem.DataType.Value="Person"
+            Width: =450
+            X: =20
+            Y: =83
+            ZIndex: =5
+
+        Toggle1_1 As toggleSwitch:
+            FalseText: ="No"
+            Height: =40
+            OnChange: |-
+                =Patch(Coll_Data,ThisItem,{DataValue:Toggle1_1.Value})
+            OnSelect: =Select(Parent)
+            TrueText: ="Yes"
+            Visible: =ThisItem.DataType.Value="Boolean"
+            Width: =112
+            X: =20
+            Y: =83
+            ZIndex: =6
+
+    Icon1 As icon.Sync:
+        Height: =49
+        Icon: =Icon.Sync
+        OnSelect: =Refresh(Questionnare);ClearCollect(Coll_Data,AddColumns(Questionnare,"DataValue",""))
+        Width: =56
+        X: =1236
+        Y: =17
+        ZIndex: =3
+
+    Button1 As button:
+        OnSelect: |-
+            =Set(DataToStore,JSON(ForAll(Coll_Data,Collect(DataKeyPairs,{Key:ThisRecord.ColInternalName,Value:DataValue}))));If(Dropdown2.Selected.Value="Static List",Notify("Test"),Patch(DataStorageDynamic,Defaults(DataStorageDynamic),{Title:User().FullName&"_"&Now(),Data:DataToStore}))
+        Text: ="Submit form"
+        X: =402
+        Y: =30
+        ZIndex: =4
+
+    Dropdown2 As dropdown:
+        Default: =
+        Items: =["Static List","Dynamic List"]
+        X: =24
+        Y: =30
+        ZIndex: =5
+
